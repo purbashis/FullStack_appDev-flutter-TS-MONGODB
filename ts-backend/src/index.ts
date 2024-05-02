@@ -3,6 +3,7 @@ import http from "http";
 import cors from "cors";
 import bodyParser from 'body-parser';
 import { error } from 'console';
+import router from './routes/routes';
 
 const app: Express = express();
 
@@ -15,6 +16,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("PORT", 3000);
 app.set("BASE_URL", "http://localhost:3000");
+
+//define routes
+
+app.use("/api/v1", router);
+
+
 
 //Start the server 
 try {
@@ -31,6 +38,6 @@ try {
 
 export default server;
 
-//Routes
+
 
 
